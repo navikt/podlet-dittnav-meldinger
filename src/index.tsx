@@ -15,5 +15,5 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById("podlet-template")
+  document.getElementById("podlet-dittnav-meldinger")
 );

@@ -9,7 +9,7 @@ function App() {
   const { data: auth } = useSWR<AuthResponse>(authUrl, fetcher);
 
   return (
-    <div className="podlet-template">
+    <div className="podlet-dittnav-meldinger">
       <Panel border>
         <Navn navn={auth?.name} />
         <Status status={"registrert som arbeidssøker"} />

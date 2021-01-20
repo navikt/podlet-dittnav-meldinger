@@ -5,12 +5,12 @@ const fs = require("fs");
 const promClient = require("prom-client");
 const PrometheusConsumer = require("@metrics/prometheus-consumer");
 
-const basePath = process.env.BASE_PATH || "/arbeid/podlet-template";
-const port = process.env.PORT || 7200;
+const basePath = process.env.BASE_PATH || "/person/podlet-dittnav-meldinger";
+const port = process.env.PORT || 7800;
 const podletVersion = process.env.VERSION_HASH || `${new Date().getTime()}`;
 const isDevelopmentEnv = true;
 
-const podletName = "podlet-template";
+const podletName = "podlet-dittnav-meldinger";
 
 let rawdata = fs.readFileSync("build/asset-manifest.json");
 let assets = JSON.parse(rawdata);
