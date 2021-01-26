@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Panel from "nav-frontend-paneler";
 import Navn from "./components/navn";
@@ -6,7 +7,7 @@ import useSWR from "swr";
 import { AuthResponse, authUrl, fetcher } from "./api";
 
 function App() {
-  const { data: auth } = useSWR<AuthResponse>(authUrl, fetcher);
+  const { data: auth } = useSWR < AuthResponse > (authUrl, fetcher);
 
   return (
     <div className="podlet-dittnav-meldinger">

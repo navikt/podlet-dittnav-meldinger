@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "development") {
   const { worker } = require("./mocks/browser");
   worker.start();
 } else {
-  Sentry.init({ dsn: "TODO: Legg inn din  egen sentry url" });
+  // Sentry.init({ dsn: "TODO: Legg inn din  egen sentry url" });
 }
 
 ReactDOM.render(

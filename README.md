@@ -25,7 +25,7 @@ Når du har sjekket ut koden, kan du gjøre følgende for å få en ny og funger
 3. Sett `namespace` og `team` i `nais/dev/vars.yaml`
 4. Sett rett `codeowner` i `CODEOWNERS`
 5. Bytt ut port 7100 med noe annet hvis du skal kjøre podleten sammen med andre podlets lokalt
-6. Sett opp sentry på [sentry.gc.nav.no](https://sentry.gc.nav.no/). Legg inn url i [index.tsx](src/index.tsx)
+6. Sett opp sentry på [sentry.gc.nav.no](https://sentry.gc.nav.no/). Legg inn url i [index.js](src/index.js)
 7. Legg til NAIS deploy key
 8. Husk å kommentere inn deploy-jobben i `.github/workflows/deploy.yml`.
 

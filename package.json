@@ -28,17 +28,12 @@
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.3",
     "@testing-library/user-event": "12.6.0",
-    "@types/jest": "26.0.20",
-    "@types/node": "14.14.21",
-    "@types/react": "17.0.0",
-    "@types/react-dom": "17.0.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "husky": "4.3.7",
     "lint-staged": "10.5.3",
     "msw": "0.25.0",
     "prettier": "2.2.1",
-    "react-scripts": "4.0.1",
-    "typescript": "4.1.3"
+    "react-scripts": "4.0.1"
   },
   "scripts": {
     "start": "NODE_ENV=development craco start",
@@ -46,7 +41,6 @@
     "test": "npm run lint && craco test",
     "test-ci": "npm run lint && CI=true craco test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
-    "typeCheck": "tsc",
     "lint": "eslint --ext .tsx,.js,.ts,.jsx src",
     "podlet": "node podlet.js"
   },
@@ -78,7 +72,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run typeCheck && npm run test-ci"
+      "pre-push": "npm run test-ci"
     }
   },
   "lint-staged": {
