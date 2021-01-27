@@ -5,7 +5,7 @@ export const lenker = {
   },
   uforetrygd: {
     tittel: "Uføretrygd",
-    url: `${window.env.TJENESTER_URL}/pselv/publisering/uforetrygd.jsf?context=ut`,
+    url: "${window.env.TJENESTER_URL}/pselv/publisering/uforetrygd.jsf?context=ut",
   },
   dineForeldrepenger: {
     tittel: "Dine foreldrepenger",
@@ -13,23 +13,23 @@ export const lenker = {
   },
   aktivitetsplan: {
     tittel: "Aktivitetsplan",
-    url: `${window.env.AKTIVITETSPLAN_URL}`,
+    url: "${window.env.AKTIVITETSPLAN_URL}",
   },
   meldekort: {
     tittel: "Meldekort",
-    url: `${window.env.NAVNO_URL}/meldekort/om-meldekort`,
+    url: "${window.env.NAVNO_URL}/meldekort/om-meldekort",
   },
   personopplysninger: {
     tittel: "Personopplysninger",
-    url: `${window.env.NAVNO_URL}/person/personopplysninger`,
+    url: "${window.env.NAVNO_URL}/person/personopplysninger",
   },
   skjemaer: {
     tittel: "Skjemaer",
-    url: `${window.env.NAVNO_URL}/soknader`,
+    url: "${window.env.NAVNO_URL}/soknader",
   },
   dinPensjon: {
     tittel: "Din pensjon",
-    url: `${window.env.TJENESTER_URL}/pselv/publisering/dinpensjon.jsf`,
+    url: "${window.env.TJENESTER_URL}/pselv/publisering/dinpensjon.jsf",
   },
   dineStillingssok: {
     tittel: "Dine stillingssøk",
@@ -37,27 +37,27 @@ export const lenker = {
   },
   veilederArbeidssoker: {
     tittel: "Veileder for arbeidssøker",
-    url: `${window.env.VEILEDERARBEIDSSOKER_URL}`,
+    url: "${window.env.VEILEDERARBEIDSSOKER_URL}",
   },
   registrerDegSomArbeidssoker: {
     tittel: "Registrer deg som arbeidssøker",
-    url: `${window.env.ARBEIDSSOKERREGISTRERING_URL}`,
+    url: "${window.env.ARBEIDSSOKERREGISTRERING_URL}",
   },
   dittSykefravaer: {
     tittel: "Ditt sykefravær",
-    url: `${window.env.TJENESTER_URL}/sykefravaer`,
+    url: "${window.env.TJENESTER_URL}/sykefravaer",
   },
   utbetalingsoversikt: {
     tittel: "Dine utbetalinger",
-    url: `${window.env.TJENESTER_URL}/utbetalingsoversikt`,
+    url: "${window.env.TJENESTER_URL}/utbetalingsoversikt",
   },
   saksoversikt: {
     tittel: "Dine saker",
-    url: `${window.env.TJENESTER_URL}/saksoversikt`,
+    url: "${window.env.TJENESTER_URL}/saksoversikt",
   },
   saksoversiktTema: {
     tittel: "Dine saker",
-    url: `${window.env.TJENESTER_URL}/saksoversikt/tema`,
+    url: "${window.env.TJENESTER_URL}/saksoversikt/tema",
   },
   saksoversiktHjelp: {
     tittel: "Dine saker hjelp",
@@ -65,35 +65,35 @@ export const lenker = {
   },
   innboks: {
     tittel: "Innboks",
-    url: `${window.env.TJENESTER_URL}/mininnboks`,
+    url: "${window.env.TJENESTER_URL}/mininnboks",
   },
   digisos: {
     tittel: "Digisos",
-    url: `${window.env.NAVNO_URL}/sosialhjelp/innsyn`,
+    url: "${window.env.NAVNO_URL}/sosialhjelp/innsyn",
   },
   koronaVeiviser: {
     tittel: "Koronavirus – hva gjelder i min situasjon?",
-    url: `${window.env.NAVNO_URL}/person/koronaveiviser`,
+    url: "${window.env.NAVNO_URL}/person/koronaveiviser",
   },
   dagpengerForskudd: {
     tittel: "Trenger du forskudd på dagpenger?",
-    url: `${window.env.NAVNO_URL}/dagpenger/forskudd`,
+    url: "${window.env.NAVNO_URL}/dagpenger/forskudd",
   },
   koronaBehandlingstid: {
     tittel: "Lengre saksbehandlingstider",
-    url: `${window.env.NAVNO_URL}/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav`,
+    url: "${window.env.NAVNO_URL}/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav",
   },
   koronaSituasjon: {
     tittel: "Tilbakebetaling av forskudd på dagpenger er i gang",
-    url: `${window.env.NAVNO_URL}/dagpenger/forskudd/oversikt`,
+    url: "${window.env.NAVNO_URL}/dagpenger/forskudd/oversikt",
   },
   dineFullmakter: {
     tittel: "Dine fullmakter",
-    url: `${window.env.NAVNO_URL}/person/pdl-fullmakt-ui`,
+    url: "${window.env.NAVNO_URL}/person/pdl-fullmakt-ui",
   },
   sykdomIFamilien: {
     tittel: "Din oversikt - Sykdom i familien",
-    url: `${window.env.SYKDOM_I_FAMILIEN_URL}`,
+    url: "${window.env.SYKDOM_I_FAMILIEN_URL}",
   },
 };
 

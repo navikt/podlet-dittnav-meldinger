@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { bool } from "prop-types";
 import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import useStore from "../../hooks/useStore";
@@ -36,7 +35,6 @@ const onClickBeskjed = (beskjed, removeBeskjed, addInaktivBeskjed, visInnlogging
 };
 
 const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
-  const location = useLocation();
   const { removeBeskjed, addInaktivBeskjed, visInnloggingsModal } = useStore();
 
   const sikkerhetsnivaa = useSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
@@ -55,7 +53,7 @@ const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
       skjermleserTekst="beskjed.knapp.skjermleser.tekst"
       lenke={sikkerhetsnivaa.lenke}
       lenkeTekst={lenkeTekst}
-      gaCategory={`Ditt NAV${location.pathname}`}
+      gaCategory="Ditt NAV/Beskjed"
       gaAction={GoogleAnalyticsAction.Beskjed}
       knapp={visKnapp}
     >

@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
@@ -10,7 +9,6 @@ import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import { GoogleAnalyticsAction, removeFragment } from "../../utils/googleAnalytics";
 
 const Oppgave = ({ oppgave, innloggingsstatus }) => {
-  const location = useLocation();
   const sikkerhetsnivaa = useSikkerhetsnivaa(oppgave, "oppgave", innloggingsstatus);
   const overskrift = <PanelOverskrift overskrift={sikkerhetsnivaa.tekst} type="Element" />;
   const lokalDatoTid = transformTolokalDatoTid(oppgave.eventTidspunkt);
@@ -22,7 +20,7 @@ const Oppgave = ({ oppgave, innloggingsstatus }) => {
       overskrift={overskrift}
       etikett={lokalDatoTid}
       href={sikkerhetsnivaa.lenke}
-      gaCategory={`Ditt NAV${location.pathname}`}
+      gaCategory="Ditt NAV/Oppgave"
       gaAction={GoogleAnalyticsAction.Oppgave}
       gaUrl={removeFragment(sikkerhetsnivaa.lenke)}
     >
