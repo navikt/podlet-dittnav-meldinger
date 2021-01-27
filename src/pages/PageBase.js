@@ -1,13 +1,7 @@
 import React from "react";
 import { arrayOf, oneOfType, node, string, shape } from "prop-types";
-import { setParams } from "@navikt/nav-dekoratoren-moduler";
 
 const PageBase = (props) => {
-  setParams({
-    context: "privatperson",
-    breadcrumbs: props.breadcrumbs,
-  });
-
   return (
     <main role="main">
       <div className="container">{props.children}</div>
