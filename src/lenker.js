@@ -5,12 +5,6 @@ function getEnvironment() {
   return "development";
 }
 
-export const fetcher = async (url) => {
-  const response = await fetch(url, { method: "GET", credentials: "include" });
-  const data = await response.json();
-  return data;
-};
-
 const AUTH_URL = {
   development: "https://api.nav.no/innloggingsstatus/auth",
   production: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/auth",
