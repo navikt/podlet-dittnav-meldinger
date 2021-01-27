@@ -9,6 +9,7 @@ import IkonBeskjed from "../../assets/IkonBeskjed";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import BeskjedType from "../../types/BeskjedType";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../utils/googleAnalytics";
+import "../../less/Beskjed.less";
 
 const remove = (beskjed, removeBeskjed, visInnloggingsModal) => {
   postDone({

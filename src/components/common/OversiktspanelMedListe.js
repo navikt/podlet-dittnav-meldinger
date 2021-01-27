@@ -5,6 +5,7 @@ import HoyreChevron from "nav-frontend-chevron";
 import PanelBase from "nav-frontend-paneler";
 import Lenke from "nav-frontend-lenker";
 import { Element, Systemtittel } from "nav-frontend-typografi";
+import "../../less/OversiktspanelMedListe.less";
 
 class OversiktspanelMedListe extends React.Component {
   render() {

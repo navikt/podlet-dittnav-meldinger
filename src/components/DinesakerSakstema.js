@@ -8,6 +8,7 @@ import i18n from "../language/i18n";
 import { lenker } from "../utils/lenker";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent, removeFragment } from "../utils/googleAnalytics";
 import { Format } from "../constants";
+import "../less/DinesakerSakstema.less";
 
 const sakstemaUrlOverride = {
   KOM: lenker.digisos.url,

@@ -6,6 +6,7 @@ import PanelOverskrift from "../common/PanelOverskrift";
 import IkonBeskjed from "../../assets/IkonBeskjed";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
 import { usePaabegynteSoknader } from "../../hooks/useSaker";
+import "../../less/PaabegynteSoknader.less";
 
 const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader.content;
 

@@ -10,6 +10,7 @@ import Meldekort from "./meldinger/meldekort/Meldekort";
 import EtterregistreringMeldekort from "./meldinger/EtterregistreringMeldekort";
 import MinInnboks from "./meldinger/MinInnboks";
 import InngangVarslinger from "./InngangVarslinger";
+import "../less/InfoMeldinger.less";
 
 const InfoMeldinger = () => {
   const [beskjeder, { data: oppgaver }, { data: innbokser }] = useBrukernotifikasjoner();

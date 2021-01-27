@@ -6,6 +6,7 @@ import DinesakerSakstema from "./DinesakerSakstema";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../utils/googleAnalytics";
 import { lenker } from "../utils/lenker";
 import { useSakstema } from "../hooks/useSaker";
+import "../less/DittnavLenkePanel.less";
 
 const antallSakstemaVist = 2;
 

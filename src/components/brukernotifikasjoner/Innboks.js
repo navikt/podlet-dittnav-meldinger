@@ -7,6 +7,7 @@ import PanelOverskrift from "../common/PanelOverskrift";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import InnboksType from "../../types/InnboksType";
 import { GoogleAnalyticsAction, removeFragment } from "../../utils/googleAnalytics";
+import "../../less/Innboks.less";
 
 const Innboks = ({ innboks, innloggingsstatus }) => {
   const sikkerhetsnivaa = useSikkerhetsnivaa(innboks, "innboks", innloggingsstatus);
