@@ -30,7 +30,7 @@ export const TestProducer = Object.freeze({
 export const Innlogging = Object.freeze({
   LOGINSERVICE_URL: buildLoginserviceUrl(),
   LOGINSERVICE_LEVEL_4_URL: buildLoginserviceUrl(4),
-  INNLOGGINGSSTATUS_URL: "www.api.nav.no/innloggingsstatus/summary",
+  INNLOGGINGSSTATUS_URL: "https://www.api.nav.no/innloggingsstatus/summary",
 });
 
 export const Path = Object.freeze({
