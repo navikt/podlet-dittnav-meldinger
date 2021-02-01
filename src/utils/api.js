@@ -1,7 +1,7 @@
-export const buildApiUrl = (path) => {
-  const apiBaseUrl = "https://www.api.nav.no/person/dittnav-api";
+import { dittnavApiUrl, navNoUrl } from "./lenker";
 
-  return `${apiBaseUrl}${path || ""}`;
+export const buildApiUrl = (path) => {
+  return `${dittnavApiUrl}${path || ""}`;
 };
 
 export const buildTestProducerUrl = (path) => {
@@ -17,9 +17,7 @@ export const buildTidslinjeUrl = (path, queryString) => {
 };
 
 export const buildNavNoUrl = (path) => {
-  const navNoBaseUrl = "https://www.api.nav.no";
-
-  return `${navNoBaseUrl}${path || ""}`;
+  return `${navNoUrl}${path || ""}`;
 };
 
 export const buildLoginserviceUrl = (level) => {

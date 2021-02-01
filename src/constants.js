@@ -1,4 +1,5 @@
 import { buildApiUrl, buildNavNoUrl, buildTestProducerUrl, buildLoginserviceUrl } from "./utils/api";
+import { innloggingsstatusUrl } from "./utils/lenker";
 
 export const NAV_NO_URL = buildNavNoUrl();
 
@@ -30,7 +31,7 @@ export const TestProducer = Object.freeze({
 export const Innlogging = Object.freeze({
   LOGINSERVICE_URL: buildLoginserviceUrl(),
   LOGINSERVICE_LEVEL_4_URL: buildLoginserviceUrl(4),
-  INNLOGGINGSSTATUS_URL: "https://www.api.nav.no/innloggingsstatus/summary",
+  INNLOGGINGSSTATUS_URL: innloggingsstatusUrl,
 });
 
 export const Path = Object.freeze({

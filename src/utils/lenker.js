@@ -1,3 +1,29 @@
+const getEnvironment = () => {
+  if (process.env.NODE_ENV === "production") {
+    return "production";
+  }
+  return "development";
+};
+
+const DITTNAV_API_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api",
+  production: "https://www.dev.nav.no/person/dittnav-api",
+};
+
+const NAVNO_URL = {
+  development: "https://www.api.nav.no",
+  production: "https://www.dev.nav.no",
+};
+
+const INNLOGGINGSSTATUS_URL = {
+  development: "https://www.api.nav.no/innloggingsstatus/summary",
+  production: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
+};
+
+export const dittnavApiUrl = DITTNAV_API_URL[getEnvironment()];
+export const navNoUrl = NAVNO_URL[getEnvironment()];
+export const innloggingsstatusUrl = INNLOGGINGSSTATUS_URL[getEnvironment()];
+
 export const lenker = {
   ledigeStillinger: {
     tittel: "Ledige stillinger",
@@ -96,28 +122,3 @@ export const lenker = {
     url: "${window.env.SYKDOM_I_FAMILIEN_URL}",
   },
 };
-
-export const generelleLenker = [
-  lenker.ledigeStillinger,
-  lenker.uforetrygd,
-  lenker.dineForeldrepenger,
-  lenker.aktivitetsplan,
-  lenker.meldekort,
-  lenker.registrerDegSomArbeidssoker,
-  lenker.dineStillingssok,
-  lenker.personopplysninger,
-  lenker.dineFullmakter,
-  lenker.sykdomIFamilien,
-];
-
-export const oppfolgingsLenker = [
-  lenker.dittSykefravaer,
-  lenker.skjemaer,
-  lenker.dineForeldrepenger,
-  lenker.dinPensjon,
-  lenker.uforetrygd,
-  lenker.meldekort,
-  lenker.personopplysninger,
-  lenker.dineFullmakter,
-  lenker.sykdomIFamilien,
-];
