@@ -14,7 +14,7 @@ const App = () => {
       <Router basename="/person">
         <ScrollToTop />
         <Switch>
-          <Route path="/dittnav/varslinger" exact component={Varslinger} />
+          <Route path="/layout-dittnav/varslinger" exact component={Varslinger} />
         </Switch>
       </Router>
     </div>
