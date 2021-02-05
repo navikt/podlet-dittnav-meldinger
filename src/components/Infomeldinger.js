@@ -26,9 +26,9 @@ const InfoMeldinger = () => {
       <h1 className="skjermleser">
         <F id="dittnav.infomeldinger.varsler" />
       </h1>
+      <Meldekort />
       <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} erAktiv />
       <InformasjonsMeldinger />
-      <Meldekort />
       <EtterregistreringMeldekort />
       <PaabegynteSoknader />
       <MinInnboks />
