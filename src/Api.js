@@ -38,10 +38,6 @@ export const fetchOppfolging = () => fetchJSON(Dittnav.OPPFOLGING_URL);
 
 export const fetchMeldekort = () => fetchJSON(Dittnav.MELDEKORT_URL);
 
-export const fetchPersonNavn = () => fetchJSON(Dittnav.PERSON_NAVN_URL);
-
-export const fetchPersonIdent = () => fetchJSON(Dittnav.PERSON_IDENT_URL);
-
 export const fetchSaker = () => fetchJSON(Dittnav.SAKER_URL);
 
 export const fetchMeldinger = () => fetchJSON(Dittnav.MELDINGER_URL);
