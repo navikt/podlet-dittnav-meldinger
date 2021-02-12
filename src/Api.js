@@ -1,9 +1,5 @@
 import { Dittnav, Innlogging, TestProducer } from "./constants";
 
-export const redirectToLogin = () => {
-  window.location.assign(`${Innlogging.LOGINSERVICE_URL}`);
-};
-
 export const tokenExpiresSoon = (headers) => headers.get("x-token-expires-soon");
 
 const fetchJSON = (url) =>
@@ -20,30 +16,6 @@ const fetchJSON = (url) =>
         resolve({ content, headers });
       })
       .catch((e) => reject(e));
-  });
-
-export const checkAuth = () =>
-  new Promise((resolve, reject) => {
-    fetchJSON(`${Innlogging.INNLOGGINGSSTATUS_URL}?ts=${Date.now()}`)
-      .then(({ content }) => {
-        if (content.authenticated) {
-          resolve(content);
-        } else {
-          reject(new Error("not authenticated"));
-        }
-      })
-      .catch(() => reject(new Error("not authenticated")));
-  });
-
-export const checkApiStatus = () =>
-  new Promise((resolve, reject) => {
-    fetchJSON(`${Dittnav.API_AUTH_URL}`)
-      .then(([response]) => {
-        resolve(response);
-      })
-      .catch((e) => {
-        reject(e);
-      });
   });
 
 const postJSON = (url, content) =>
