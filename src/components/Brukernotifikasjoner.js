@@ -25,7 +25,6 @@ const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInakt
           .sort(byEventTidspunkt)
           .map((o) => <Oppgave key={o.eventId} oppgave={o} innloggingsstatus={innloggingsstatus} />)}
       {beskjeder &&
-        beskjeder &&
         innloggingsstatus &&
         beskjeder
           .sort(byEventTidspunkt)

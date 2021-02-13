@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { fetchBeskjeder, fetchOppgaver, fetchInnbokser } from "../Api";
+import { fetchBeskjeder } from "../Api";
 import useStore from "./useStore";
 
 const useBeskjeder = () => {
@@ -13,10 +13,6 @@ const useBeskjeder = () => {
   return state.beskjeder;
 };
 
-const useOppgaver = () => useQuery("oppgaver", fetchOppgaver, { onError: useStore().setError });
-
-const useInnbokser = () => useQuery("innbokser", fetchInnbokser, { onError: useStore().setError });
-
-const useBrukernotifikasjoner = () => [useBeskjeder(), useOppgaver(), useInnbokser()];
+const useBrukernotifikasjoner = () => [useBeskjeder()];
 
 export default useBrukernotifikasjoner;
