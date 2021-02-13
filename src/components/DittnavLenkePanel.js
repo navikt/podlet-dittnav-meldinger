@@ -5,14 +5,14 @@ import OversiktspanelMedListe from "./common/OversiktspanelMedListe";
 import DinesakerSakstema from "./DinesakerSakstema";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../utils/googleAnalytics";
 import { lenker } from "../utils/lenker";
-import "../less/DittnavLenkePanel.less";
 import { useQuery } from "react-query";
-import { fetchSakstema } from "../api";
-
+import { fetcher } from "../api";
+import { SAKSTEMA_URL } from "../constants";
+import "../less/DittnavLenkePanel.less";
 const antallSakstemaVist = 2;
 
 const DittnavLenkePanel = () => {
-  const { data: sakstema } = useQuery("sakstema", fetchSakstema);
+  const { data: sakstema } = useQuery(SAKSTEMA_URL, fetcher);
   const visStortSakspanel = sakstema && sakstema.sakstemaList && sakstema.sakstemaList.length > 0;
 
   return (

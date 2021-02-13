@@ -10,17 +10,18 @@ import Meldekort from "./meldinger/meldekort/Meldekort";
 import EtterregistreringMeldekort from "./meldinger/EtterregistreringMeldekort";
 import MinInnboks from "./meldinger/MinInnboks";
 import InngangVarslinger from "./InngangVarslinger";
-import "../less/InfoMeldinger.less";
 import { useQuery } from "react-query";
-import { fetchInaktiveInnbokser, fetchInaktiveOppgaver, fetchInnbokser, fetchOppgaver } from "../api";
+import { fetcher } from "../api";
+import { INNBOKS_INAKTIV_URL, INNBOKS_URL, OPPGAVE_INAKTIV_URL, OPPGAVE_URL } from "../constants";
+import "../less/InfoMeldinger.less";
 
 const InfoMeldinger = () => {
   const [beskjeder] = useBrukernotifikasjoner();
   const [inaktiveBeskjeder] = useInaktiveBrukernotifikasjoner();
-  const { data: oppgaver } = useQuery("oppgaver", fetchOppgaver);
-  const { data: innbokser } = useQuery("innbokser", fetchInnbokser);
-  const { data: inaktiveOppgaver } = useQuery("inaktiveOppgaver", fetchInaktiveOppgaver);
-  const { data: inaktiveInnbokser } = useQuery("inaktiveInnbokser", fetchInaktiveInnbokser);
+  const { data: oppgaver } = useQuery(OPPGAVE_URL, fetcher);
+  const { data: innbokser } = useQuery(INNBOKS_URL, fetcher);
+  const { data: inaktiveOppgaver } = useQuery(OPPGAVE_INAKTIV_URL, fetcher);
+  const { data: inaktiveInnbokser } = useQuery(INNBOKS_INAKTIV_URL, fetcher);
 
   const [visInngangTilVarslinger] = useInngang(inaktiveBeskjeder, inaktiveOppgaver, inaktiveInnbokser);
 

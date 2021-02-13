@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage as F, useIntl } from "react-intl";
-import { Path } from "../../constants";
+import { MELDEKORT_URL, Path } from "../../constants";
 import i18n from "../../language/i18n";
 import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import PanelOverskrift from "../common/PanelOverskrift";
@@ -8,7 +8,7 @@ import IkonOppgave from "../../assets/IkonOppgave";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
 import { buildNavNoUrl } from "../../utils/api";
 import { useQuery } from "react-query";
-import { fetchMeldekort } from "../../api";
+import { fetcher } from "../../api";
 
 const tallordForMeldekort = (antallMeldekort, translater) =>
   antallMeldekort === 1 ? translater.oneNeuter() : translater.numberToWord(antallMeldekort);
@@ -25,7 +25,7 @@ const createOverskrift = (ettereg, intl) => {
 };
 
 const EtterregistreringMeldekort = () => {
-  const { data: meldekort, isSuccess } = useQuery("meldekort", fetchMeldekort);
+  const { data: meldekort, isSuccess } = useQuery(MELDEKORT_URL, fetcher);
   const intl = useIntl();
 
   if (!isSuccess) {

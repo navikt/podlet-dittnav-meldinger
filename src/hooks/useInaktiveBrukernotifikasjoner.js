@@ -1,11 +1,12 @@
 import { useQuery } from "react-query";
-import { fetchInaktiveBeskjeder } from "../api";
+import { fetcher } from "../api";
 import useStore from "./useStore";
+import { BESKJED_INAKTIV_URL } from "../constants";
 
 const useInaktiveBeskjeder = () => {
   const { state, addInaktiveBeskjeder, setError } = useStore();
 
-  useQuery("inaktiveBeskjeder", fetchInaktiveBeskjeder, {
+  useQuery(BESKJED_INAKTIV_URL, fetcher, {
     onSuccess: addInaktiveBeskjeder,
     onError: setError,
   });

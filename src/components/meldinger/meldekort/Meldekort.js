@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage as F, useIntl } from "react-intl";
-import { Path } from "../../../constants";
+import { MELDEKORT_URL, Path } from "../../../constants";
 import i18n from "../../../language/i18n";
 import PanelOverskrift from "../../common/PanelOverskrift";
 import LenkepanelMedIkon from "../../common/LenkepanelMedIkon";
@@ -10,12 +10,12 @@ import IkonOppgave from "../../../assets/IkonOppgave";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../../utils/googleAnalytics";
 import { buildNavNoUrl } from "../../../utils/api";
 import { useQuery } from "react-query";
-import { fetchMeldekort } from "../../../api";
+import { fetcher } from "../../../api";
 
 const isMeldekortbruker = (meldekort) => (meldekort && meldekort ? meldekort.meldekortbruker : false);
 
 const Meldekort = () => {
-  const { data: meldekort, isSuccess } = useQuery("meldekort", fetchMeldekort);
+  const { data: meldekort, isSuccess } = useQuery(MELDEKORT_URL, fetcher);
   const intl = useIntl();
 
   if (!isSuccess || !meldekort || !isMeldekortbruker(meldekort)) {

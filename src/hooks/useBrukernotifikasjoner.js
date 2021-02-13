@@ -1,11 +1,12 @@
 import { useQuery } from "react-query";
-import { fetchBeskjeder } from "../api";
+import { fetcher } from "../api";
 import useStore from "./useStore";
+import { BESKJED_URL } from "../constants";
 
 const useBeskjeder = () => {
   const { state, addBeskjeder, setError } = useStore();
 
-  useQuery("beskjeder", fetchBeskjeder, {
+  useQuery(BESKJED_URL, fetcher, {
     onSuccess: addBeskjeder,
     onError: setError,
   });

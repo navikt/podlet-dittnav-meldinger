@@ -8,10 +8,11 @@ import BeskjedType from "../types/BeskjedType";
 import OppgaveType from "../types/OppgaveType";
 import InnboksType from "../types/InnboksType";
 import { useQuery } from "react-query";
-import { fetchInnloggingsstatus } from "../api";
+import { fetcher } from "../api";
+import { INNLOGGINGSSTATUS_URL } from "../constants";
 
 const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInaktiv }) => {
-  const { data: innloggingsstatus, isSuccess } = useQuery("innloggingsstatus", fetchInnloggingsstatus);
+  const { data: innloggingsstatus, isSuccess } = useQuery(INNLOGGINGSSTATUS_URL, fetcher);
 
   if (!isSuccess) {
     return null;
