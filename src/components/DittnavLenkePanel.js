@@ -5,13 +5,14 @@ import OversiktspanelMedListe from "./common/OversiktspanelMedListe";
 import DinesakerSakstema from "./DinesakerSakstema";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../utils/googleAnalytics";
 import { lenker } from "../utils/lenker";
-import { useSakstema } from "../hooks/useSaker";
 import "../less/DittnavLenkePanel.less";
+import { useQuery } from "react-query";
+import { fetchSakstema } from "../Api";
 
 const antallSakstemaVist = 2;
 
 const DittnavLenkePanel = () => {
-  const [{ data: sakstema }] = useSakstema();
+  const { data: sakstema } = useQuery("sakstema", fetchSakstema);
   const visStortSakspanel = sakstema && sakstema.sakstemaList && sakstema.sakstemaList.length > 0;
 
   return (

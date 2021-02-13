@@ -6,7 +6,8 @@ import PanelOverskrift from "../common/PanelOverskrift";
 import IkonOppgave from "../../assets/IkonOppgave";
 import IkonInnboks from "../../assets/IkonInnboks";
 import { GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
-import { useMeldinger } from "../../hooks/usePerson";
+import { useQuery } from "react-query";
+import { fetchMeldinger } from "../../Api";
 
 const getMinInnboksIcon = (type) => {
   switch (type) {
@@ -31,7 +32,7 @@ const createOverskrift = (message, numberToWord, formatFlereEn) => {
 };
 
 const MinInnboks = () => {
-  const [{ data: meldinger, isSuccess }] = useMeldinger();
+  const { data: meldinger, isSuccess } = useQuery("meldinger", fetchMeldinger);
   const { numberToWord } = i18n[useIntl().locale];
   const formatFlereEn = (length, i18String) => `${i18String}${length === 1 ? "en" : "flere"}`;
 

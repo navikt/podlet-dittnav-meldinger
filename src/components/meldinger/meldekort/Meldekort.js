@@ -9,12 +9,13 @@ import IkonBeskjed from "../../../assets/IkonBeskjed";
 import IkonOppgave from "../../../assets/IkonOppgave";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../../utils/googleAnalytics";
 import { buildNavNoUrl } from "../../../utils/api";
-import { useMeldekort } from "../../../hooks/usePerson";
+import { useQuery } from "react-query";
+import { fetchMeldekort } from "../../../Api";
 
 const isMeldekortbruker = (meldekort) => (meldekort && meldekort ? meldekort.meldekortbruker : false);
 
 const Meldekort = () => {
-  const [{ data: meldekort, isSuccess }] = useMeldekort();
+  const { data: meldekort, isSuccess } = useQuery("meldekort", fetchMeldekort);
   const intl = useIntl();
 
   if (!isSuccess || !meldekort || !isMeldekortbruker(meldekort)) {

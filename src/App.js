@@ -5,18 +5,29 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import ScrollToTop from "./components/scroll/ScrollToTop";
 import Varslinger from "./pages/Varslinger/Varslinger";
 import DittnavLenkePanel from "./components/DittnavLenkePanel";
-import useBrukernotifikasjoner from "./hooks/useBrukernotifikasjoner";
-import useInaktiveBrukernotifikasjoner from "./hooks/useInaktiveBrukernotifikasjoner";
-import usePerson from "./hooks/usePerson";
-import useSaker from "./hooks/useSaker";
-import useInnloggingsstatus from "./hooks/useInnloggingsstatus";
+import useStore from "./hooks/useStore";
+import { useQuery } from "react-query";
+import { fetchBeskjeder, fetchInaktiveBeskjeder, fetchInaktiveInnbokser, fetchOppgaver } from "./Api";
+import { fetchInaktiveOppgaver, fetchInnbokser, fetchOppfolging, fetchSaker, fetchSakstema } from "./Api";
+import { fetchMeldekort, fetchMeldinger, fetchInnloggingsstatus } from "./Api";
 
 const App = () => {
-  useBrukernotifikasjoner();
-  useInaktiveBrukernotifikasjoner();
-  usePerson();
-  useSaker();
-  useInnloggingsstatus();
+  const { addBeskjeder, addInaktiveBeskjeder } = useStore();
+
+  useQuery("beskjeder", fetchBeskjeder, { onSuccess: addBeskjeder });
+  useQuery("oppgaver", fetchOppgaver);
+  useQuery("innbokser", fetchInnbokser);
+
+  useQuery("inaktiveBeskjeder", fetchInaktiveBeskjeder, { onSuccess: addInaktiveBeskjeder });
+  useQuery("inaktiveOppgaver", fetchInaktiveOppgaver);
+  useQuery("inaktiveInnbokser", fetchInaktiveInnbokser);
+
+  useQuery("oppfolging", fetchOppfolging);
+  useQuery("meldekort", fetchMeldekort);
+  useQuery("meldinger", fetchMeldinger);
+  useQuery("sakstema", fetchSakstema);
+  useQuery("paabegynteSoknader", fetchSaker);
+  useQuery("innloggingsstatus", fetchInnloggingsstatus);
 
   return (
     <div className="podlet-dittnav-meldinger">

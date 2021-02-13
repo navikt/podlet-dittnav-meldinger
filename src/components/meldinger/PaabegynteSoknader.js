@@ -5,8 +5,9 @@ import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import PanelOverskrift from "../common/PanelOverskrift";
 import IkonBeskjed from "../../assets/IkonBeskjed";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
-import { usePaabegynteSoknader } from "../../hooks/useSaker";
 import "../../less/PaabegynteSoknader.less";
+import { useQuery } from "react-query";
+import { fetchSaker } from "../../Api";
 
 const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader;
 
@@ -22,7 +23,7 @@ const createOverskrift = (paabegynteSoknader, soknadstekst, intl) => (
 );
 
 const PaabegynteSoknader = () => {
-  const [{ data: paabegynteSoknader, isSuccess }] = usePaabegynteSoknader();
+  const { data: paabegynteSoknader, isSuccess } = useQuery("paabegynteSoknader", fetchSaker);
   const intl = useIntl();
 
   if (!isSuccess || !hasContent(paabegynteSoknader) || hasNoPaabegynteSoknader(paabegynteSoknader)) {

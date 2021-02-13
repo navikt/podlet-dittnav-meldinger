@@ -6,8 +6,9 @@ import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import PanelOverskrift from "../common/PanelOverskrift";
 import IkonOppgave from "../../assets/IkonOppgave";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
-import { useMeldekort } from "../../hooks/usePerson";
 import { buildNavNoUrl } from "../../utils/api";
+import { useQuery } from "react-query";
+import { fetchMeldekort } from "../../Api";
 
 const tallordForMeldekort = (antallMeldekort, translater) =>
   antallMeldekort === 1 ? translater.oneNeuter() : translater.numberToWord(antallMeldekort);
@@ -24,7 +25,7 @@ const createOverskrift = (ettereg, intl) => {
 };
 
 const EtterregistreringMeldekort = () => {
-  const [{ data: meldekort, isSuccess }] = useMeldekort();
+  const { data: meldekort, isSuccess } = useQuery("meldekort", fetchMeldekort);
   const intl = useIntl();
 
   if (!isSuccess) {

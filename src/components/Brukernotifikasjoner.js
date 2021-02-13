@@ -4,13 +4,14 @@ import Beskjed from "./brukernotifikasjoner/Beskjed";
 import Oppgave from "./brukernotifikasjoner/Oppgave";
 import Innboks from "./brukernotifikasjoner/Innboks";
 import { byEventTidspunkt } from "../utils/datoUtils";
-import useInnloggingsstatus from "../hooks/useInnloggingsstatus";
 import BeskjedType from "../types/BeskjedType";
 import OppgaveType from "../types/OppgaveType";
 import InnboksType from "../types/InnboksType";
+import { useQuery } from "react-query";
+import { fetchInnloggingsstatus } from "../Api";
 
 const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInaktiv }) => {
-  const [{ data: innloggingsstatus, isSuccess }] = useInnloggingsstatus();
+  const { data: innloggingsstatus, isSuccess } = useQuery("innloggingsstatus", fetchInnloggingsstatus);
 
   if (!isSuccess) {
     return null;
