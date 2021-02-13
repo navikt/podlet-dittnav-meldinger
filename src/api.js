@@ -17,10 +17,17 @@ const postOptions = (content) => ({
   body: JSON.stringify(content),
 });
 
+const checkResponse = (response) => {
+  if (!response.ok) {
+    throw new Error("Fetch request failed");
+  }
+};
+
 export const fetcher = async ({ queryKey }) => {
   const response = await fetch(queryKey, getOptions);
-  const data = await response.json();
-  return data;
+  checkResponse(response);
+
+  return response.json();
 };
 
 const postJSON = (url, content) =>
