@@ -5,20 +5,19 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import ScrollToTop from "./components/scroll/ScrollToTop";
 import Varslinger from "./pages/Varslinger/Varslinger";
 import DittnavLenkePanel from "./components/DittnavLenkePanel";
-import useStore from "./hooks/useStore";
 import { useQuery } from "react-query";
-import { fetchBeskjeder, fetchInaktiveBeskjeder, fetchInaktiveInnbokser, fetchOppgaver } from "./Api";
+import { fetchInaktiveInnbokser, fetchOppgaver } from "./Api";
 import { fetchInaktiveOppgaver, fetchInnbokser, fetchOppfolging, fetchSaker, fetchSakstema } from "./Api";
 import { fetchMeldekort, fetchMeldinger, fetchInnloggingsstatus } from "./Api";
+import useBrukernotifikasjoner from "./hooks/useBrukernotifikasjoner";
+import useInaktiveBrukernotifikasjoner from "./hooks/useInaktiveBrukernotifikasjoner";
 
 const App = () => {
-  const { addBeskjeder, addInaktiveBeskjeder } = useStore();
+  useBrukernotifikasjoner();
+  useInaktiveBrukernotifikasjoner();
 
-  useQuery("beskjeder", fetchBeskjeder, { onSuccess: addBeskjeder });
   useQuery("oppgaver", fetchOppgaver);
   useQuery("innbokser", fetchInnbokser);
-
-  useQuery("inaktiveBeskjeder", fetchInaktiveBeskjeder, { onSuccess: addInaktiveBeskjeder });
   useQuery("inaktiveOppgaver", fetchInaktiveOppgaver);
   useQuery("inaktiveInnbokser", fetchInaktiveInnbokser);
 
