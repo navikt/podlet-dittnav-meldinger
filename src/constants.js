@@ -3,24 +3,19 @@ import { innloggingsstatusUrl } from "./utils/lenker";
 
 export const NAV_NO_URL = buildNavNoUrl();
 
-export const Dittnav = Object.freeze({
-  API_AUTH_URL: buildApiUrl("/authPing"),
-  OPPFOLGING_URL: buildApiUrl("/oppfolging"),
-  MELDEKORT_URL: buildApiUrl("/meldekortinfo"),
-  PERSON_NAVN_URL: buildApiUrl("/personalia/navn"),
-  PERSON_IDENT_URL: buildApiUrl("/personalia/ident"),
-  SAKER_URL: buildApiUrl("/saker/paabegynte"),
-  MELDINGER_URL: buildApiUrl("/meldinger/ubehandlede"),
-  SAKSTEMA_URL: buildApiUrl("/saker/sakstema"),
-  BESKJED_URL: buildApiUrl("/beskjed"),
-  OPPGAVE_URL: buildApiUrl("/oppgave"),
-  INNBOKS_URL: buildApiUrl("/innboks"),
-  BESKJED_INAKTIV_URL: buildApiUrl("/beskjed/inaktiv"),
-  OPPGAVE_INAKTIV_URL: buildApiUrl("/oppgave/inaktiv"),
-  INNBOKS_INAKTIV_URL: buildApiUrl("/innboks/inaktiv"),
-  VARSLINGER_URL: buildNavNoUrl("/person/dittnav/varslinger"),
-  DONE_URL: buildApiUrl("/produce/done"),
-});
+export const OPPFOLGING_URL = buildApiUrl("/oppfolging");
+export const MELDEKORT_URL = buildApiUrl("/meldekortinfo");
+export const SAKER_URL = buildApiUrl("/saker/paabegynte");
+export const MELDINGER_URL = buildApiUrl("/meldinger/ubehandlede");
+export const SAKSTEMA_URL = buildApiUrl("/saker/sakstema");
+export const BESKJED_URL = buildApiUrl("/beskjed");
+export const OPPGAVE_URL = buildApiUrl("/oppgave");
+export const INNBOKS_URL = buildApiUrl("/innboks");
+export const BESKJED_INAKTIV_URL = buildApiUrl("/beskjed/inaktiv");
+export const OPPGAVE_INAKTIV_URL = buildApiUrl("/oppgave/inaktiv");
+export const INNBOKS_INAKTIV_URL = buildApiUrl("/innboks/inaktiv");
+export const DONE_URL = buildApiUrl("/produce/done");
+export const INNLOGGINGSSTATUS_URL = innloggingsstatusUrl;
 
 export const TestProducer = Object.freeze({
   URL: buildTestProducerUrl(),
@@ -31,7 +26,6 @@ export const TestProducer = Object.freeze({
 export const Innlogging = Object.freeze({
   LOGINSERVICE_URL: buildLoginserviceUrl(),
   LOGINSERVICE_LEVEL_4_URL: buildLoginserviceUrl(4),
-  INNLOGGINGSSTATUS_URL: innloggingsstatusUrl,
 });
 
 export const Path = Object.freeze({
