@@ -10,7 +10,7 @@ import IkonOppgave from "../../../assets/IkonOppgave";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../../utils/googleAnalytics";
 import { buildNavNoUrl } from "../../../utils/api";
 import { useQuery } from "react-query";
-import { fetchMeldekort } from "../../../Api";
+import { fetchMeldekort } from "../../../api";
 
 const isMeldekortbruker = (meldekort) => (meldekort && meldekort ? meldekort.meldekortbruker : false);
 

@@ -4,7 +4,7 @@ import { FormattedMessage as F } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import useStore from "../../hooks/useStore";
-import { fetchBeskjeder, fetchOppgaver, fetchInnbokser, postHendelse } from "../../Api";
+import { fetchBeskjeder, fetchOppgaver, fetchInnbokser, postHendelse } from "../../api";
 
 const FormHendelser = ({ tekst, lenke, valg, eksternVarsling, setTekst, setLenke, setOppgaver, setInnbokser }) => {
   const { addBeskjeder } = useStore();

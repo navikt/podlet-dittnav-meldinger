@@ -7,7 +7,7 @@ import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../u
 import { lenker } from "../utils/lenker";
 import "../less/DittnavLenkePanel.less";
 import { useQuery } from "react-query";
-import { fetchSakstema } from "../Api";
+import { fetchSakstema } from "../api";
 
 const antallSakstemaVist = 2;
 

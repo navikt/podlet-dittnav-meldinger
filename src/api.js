@@ -4,30 +4,34 @@ import { INNLOGGINGSSTATUS_URL, MELDEKORT_URL, MELDINGER_URL } from "./constants
 
 export const tokenExpiresSoon = (headers) => headers.get("x-token-expires-soon");
 
-const fetchJSON = (url) =>
-  fetch(url, { method: "GET", credentials: "include" }).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-  });
+const getOptions = {
+  method: "GET",
+  credentials: "include",
+};
+
+const postOptions = (content) => ({
+  method: "POST",
+  credentials: "include",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(content),
+});
+
+const fetchJSON = async (url) => {
+  const response = await fetch(url, getOptions);
+  const data = await response.json();
+  return data;
+};
 
 const postJSON = (url, content) =>
   new Promise((resolve, reject) => {
-    fetch(url, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(content),
-    })
+    fetch(url, postOptions(content))
       .then((response) => response.headers)
       .then((headers) => resolve(headers))
       .catch((e) => reject(e));
   });
-
-export const fetchOppfolging = () => fetchJSON(OPPFOLGING_URL);
 
 export const fetchMeldekort = () => fetchJSON(MELDEKORT_URL);
 

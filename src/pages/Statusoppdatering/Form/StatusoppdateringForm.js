@@ -3,7 +3,7 @@ import { FormattedMessage as F } from "react-intl";
 import { Input, Select } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import useForm from "../../../hooks/useForm";
-import { postStatusoppdatering } from "../../../Api";
+import { postStatusoppdatering } from "../../../api";
 
 const initialState = {
   statusGlobal: "SENDT",

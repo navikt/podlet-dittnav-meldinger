@@ -8,7 +8,7 @@ import BeskjedType from "../types/BeskjedType";
 import OppgaveType from "../types/OppgaveType";
 import InnboksType from "../types/InnboksType";
 import { useQuery } from "react-query";
-import { fetchInnloggingsstatus } from "../Api";
+import { fetchInnloggingsstatus } from "../api";
 
 const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInaktiv }) => {
   const { data: innloggingsstatus, isSuccess } = useQuery("innloggingsstatus", fetchInnloggingsstatus);

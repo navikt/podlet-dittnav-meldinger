@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { fetchInaktiveBeskjeder } from "../Api";
+import { fetchInaktiveBeskjeder } from "../api";
 import useStore from "./useStore";
 
 const useInaktiveBeskjeder = () => {

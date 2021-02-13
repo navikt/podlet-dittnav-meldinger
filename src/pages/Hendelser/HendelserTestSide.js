@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FormattedMessage as F } from "react-intl";
 import { Fareknapp } from "nav-frontend-knapper";
 import Panel from "nav-frontend-paneler";
-import { postDoneAll, fetchInnloggingsstatus } from "../../Api";
+import { postDoneAll, fetchInnloggingsstatus } from "../../api";
 import TittelHendelser from "./TittelHendelser";
 import FormHendelser from "./FormHendelser";
 import Brukernotifikasjoner from "../../components/Brukernotifikasjoner";

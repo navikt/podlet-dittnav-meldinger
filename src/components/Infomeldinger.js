@@ -12,7 +12,7 @@ import MinInnboks from "./meldinger/MinInnboks";
 import InngangVarslinger from "./InngangVarslinger";
 import "../less/InfoMeldinger.less";
 import { useQuery } from "react-query";
-import { fetchInaktiveInnbokser, fetchInaktiveOppgaver, fetchInnbokser, fetchOppgaver } from "../Api";
+import { fetchInaktiveInnbokser, fetchInaktiveOppgaver, fetchInnbokser, fetchOppgaver } from "../api";
 
 const InfoMeldinger = () => {
   const [beskjeder] = useBrukernotifikasjoner();

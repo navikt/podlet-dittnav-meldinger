@@ -7,7 +7,7 @@ import IkonBeskjed from "../../assets/IkonBeskjed";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
 import "../../less/PaabegynteSoknader.less";
 import { useQuery } from "react-query";
-import { fetchSaker } from "../../Api";
+import { fetchSaker } from "../../api";
 
 const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader;
 

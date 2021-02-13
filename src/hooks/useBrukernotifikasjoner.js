@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { fetchBeskjeder } from "../Api";
+import { fetchBeskjeder } from "../api";
 import useStore from "./useStore";
 
 const useBeskjeder = () => {

@@ -4,7 +4,7 @@ import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import useStore from "../../hooks/useStore";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
 import PanelMedIkon from "../common/PanelMedIkon";
-import { postDone, tokenExpiresSoon } from "../../Api";
+import { postDone, tokenExpiresSoon } from "../../api";
 import IkonBeskjed from "../../assets/IkonBeskjed";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import BeskjedType from "../../types/BeskjedType";

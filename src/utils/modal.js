@@ -1,4 +1,4 @@
-import { tokenExpiresSoon } from "../Api";
+import { tokenExpiresSoon } from "../api";
 
 const checkIfModalShouldBeToggled = (headers, toggleInnloggingsModal) => {
   if (tokenExpiresSoon(headers)) {

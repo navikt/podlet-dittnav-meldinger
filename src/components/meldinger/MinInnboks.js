@@ -7,7 +7,7 @@ import IkonOppgave from "../../assets/IkonOppgave";
 import IkonInnboks from "../../assets/IkonInnboks";
 import { GoogleAnalyticsCategory } from "../../utils/googleAnalytics";
 import { useQuery } from "react-query";
-import { fetchMeldinger } from "../../Api";
+import { fetchMeldinger } from "../../api";
 
 const getMinInnboksIcon = (type) => {
   switch (type) {
