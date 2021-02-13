@@ -3,19 +3,10 @@ import { Dittnav, Innlogging, TestProducer } from "./constants";
 export const tokenExpiresSoon = (headers) => headers.get("x-token-expires-soon");
 
 const fetchJSON = (url) =>
-  new Promise((resolve, reject) => {
-    fetch(url, { method: "GET", credentials: "include" })
-      .then((response) => {
-        if (response.ok) {
-          return response.json().then((json) => [json, response.headers]);
-        }
-        reject(response);
-        return null;
-      })
-      .then(([content, headers]) => {
-        resolve({ content, headers });
-      })
-      .catch((e) => reject(e));
+  fetch(url, { method: "GET", credentials: "include" }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
   });
 
 const postJSON = (url, content) =>

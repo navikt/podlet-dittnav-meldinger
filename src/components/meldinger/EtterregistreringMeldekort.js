@@ -31,12 +31,12 @@ const EtterregistreringMeldekort = () => {
     return null;
   }
 
-  if (meldekort.content.etterregistrerteMeldekort && meldekort.content.etterregistrerteMeldekort > 0) {
+  if (meldekort.etterregistrerteMeldekort && meldekort.etterregistrerteMeldekort > 0) {
     return (
       <LenkepanelMedIkon
         className="infomelding oppgave"
         alt="Melding om etterregistrerte meldekort"
-        overskrift={createOverskrift(meldekort.content, intl)}
+        overskrift={createOverskrift(meldekort, intl)}
         href={`${buildNavNoUrl(Path.ETTERREGISTRERTE_MELDEKORT)}`}
         gaCategory={GoogleAnalyticsCategory.Forside}
         gaAction={GoogleAnalyticsAction.EtterregistrerteMeldekort}

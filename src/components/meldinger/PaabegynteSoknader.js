@@ -8,10 +8,9 @@ import { GoogleAnalyticsAction, GoogleAnalyticsCategory } from "../../utils/goog
 import { usePaabegynteSoknader } from "../../hooks/useSaker";
 import "../../less/PaabegynteSoknader.less";
 
-const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader.content;
+const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader;
 
-const hasNoPaabegynteSoknader = (paabegynteSoknader) =>
-  paabegynteSoknader && paabegynteSoknader.content && paabegynteSoknader.content.antallPaabegynte === 0;
+const hasNoPaabegynteSoknader = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader.antallPaabegynte === 0;
 
 const createOverskrift = (paabegynteSoknader, soknadstekst, intl) => (
   <PanelOverskrift
@@ -31,7 +30,7 @@ const PaabegynteSoknader = () => {
   }
 
   const soknadstekst =
-    paabegynteSoknader && paabegynteSoknader.content.antallPaabegynte === 1
+    paabegynteSoknader && paabegynteSoknader.antallPaabegynte === 1
       ? "saksoversikt.soknad.en"
       : "saksoversikt.soknad.flere";
 
@@ -39,9 +38,9 @@ const PaabegynteSoknader = () => {
     <LenkepanelMedIkon
       className="infomelding paabegynte-soknader"
       alt="Melding om Søknader"
-      overskrift={createOverskrift(paabegynteSoknader.content, soknadstekst, intl)}
+      overskrift={createOverskrift(paabegynteSoknader, soknadstekst, intl)}
       ingress={<F id="saksoversikt.lenke" />}
-      href={paabegynteSoknader.content.url}
+      href={paabegynteSoknader.url}
       gaCategory={GoogleAnalyticsCategory.Forside}
       gaAction={GoogleAnalyticsAction.PaabegynteSoknader}
     >

@@ -1,5 +1,3 @@
-import { tokenExpiresSoon } from "../Api";
-
 export const initialStoreState = () => ({
   beskjeder: null,
   inaktiveBeskjeder: null,
@@ -13,26 +11,21 @@ const storeReducer = (state = initialStoreState, action) => {
       return {
         ...state,
         beskjeder: action.payload,
-        visInnloggingsModal: tokenExpiresSoon(action.payload.headers),
       };
     case "ADD_INAKTIVE_BESKJEDER":
       return {
         ...state,
         inaktiveBeskjeder: action.payload,
-        visInnloggingsModal: tokenExpiresSoon(action.payload.headers),
       };
     case "REMOVE_BESKJED":
       return {
         ...state,
-        beskjeder: { ...state.beskjeder, content: state.beskjeder.content.filter((b) => action.payload.uid !== b.uid) },
+        beskjeder: state.beskjeder.filter((b) => action.payload.uid !== b.uid),
       };
     case "ADD_INAKTIV_BESKJED":
       return {
         ...state,
-        inaktiveBeskjeder: {
-          ...state.inaktiveBeskjeder,
-          content: [...state.inaktiveBeskjeder.content, action.payload],
-        },
+        inaktiveBeskjeder: [...state.inaktiveBeskjeder, [...state.inaktiveBeskjeder, action.payload]],
       };
     case "TOGGLE_INNLOGGINGSMODAL":
       return {

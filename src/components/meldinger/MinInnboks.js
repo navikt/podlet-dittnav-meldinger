@@ -41,7 +41,7 @@ const MinInnboks = () => {
 
   return (
     <>
-      {meldinger.content.map((message) => (
+      {meldinger.map((message) => (
         <LenkepanelMedIkon
           key={message.type}
           className="infomelding innboks"

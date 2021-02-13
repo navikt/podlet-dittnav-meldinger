@@ -8,7 +8,7 @@ export const usePaabegynteSoknader = () => {
   const store = useStore();
 
   const checkForFeilendeBaksystem = (data) => {
-    if (data.content.feilendeBaksystem.length > 0) {
+    if (data.feilendeBaksystem.length > 0) {
       store.setError();
     }
   };
