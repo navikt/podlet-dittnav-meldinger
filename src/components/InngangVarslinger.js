@@ -2,7 +2,7 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Undertittel } from "nav-frontend-typografi";
 import HoyreChevron from "nav-frontend-chevron";
-import { Dittnav } from "../constants";
+import { VARSLINGER_URL } from "../constants";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../utils/googleAnalytics";
 
 const InngangVarslinger = () => (
@@ -10,9 +10,9 @@ const InngangVarslinger = () => (
     <Undertittel className="varslinger-inngang">
       <a
         id="varslinger-inngang__lenke-id"
-        href="/dittnav/varslinger"
+        href={VARSLINGER_URL}
         onClick={() =>
-          trackEvent(GoogleAnalyticsCategory.Forside, GoogleAnalyticsAction.Varslinger, `${Dittnav.VARSLINGER_URL}`)
+          trackEvent(GoogleAnalyticsCategory.Forside, GoogleAnalyticsAction.Varslinger, `${VARSLINGER_URL}`)
         }
       >
         <FormattedMessage id="dittnav.infomeldinger.inngang.varslinger" />
