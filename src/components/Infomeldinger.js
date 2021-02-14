@@ -1,8 +1,6 @@
 import React from "react";
 import { FormattedMessage as F } from "react-intl";
 import useInngang from "../hooks/useInngang";
-import useBrukernotifikasjoner from "../hooks/useBrukernotifikasjoner";
-import useInaktiveBrukernotifikasjoner from "../hooks/useInaktiveBrukernotifikasjoner";
 import InformasjonsMeldinger from "./meldinger/InformasjonsMeldinger";
 import Brukernotifikasjoner from "./Brukernotifikasjoner";
 import PaabegynteSoknader from "./meldinger/PaabegynteSoknader";
@@ -12,12 +10,19 @@ import MinInnboks from "./meldinger/MinInnboks";
 import InngangVarslinger from "./InngangVarslinger";
 import { useQuery } from "react-query";
 import { fetcher } from "../api";
-import { INNBOKS_INAKTIV_URL, INNBOKS_URL, OPPGAVE_INAKTIV_URL, OPPGAVE_URL } from "../constants";
+import {
+  BESKJED_INAKTIV_URL,
+  BESKJED_URL,
+  INNBOKS_INAKTIV_URL,
+  INNBOKS_URL,
+  OPPGAVE_INAKTIV_URL,
+  OPPGAVE_URL,
+} from "../constants";
 import "../less/InfoMeldinger.less";
 
 const InfoMeldinger = () => {
-  const [beskjeder] = useBrukernotifikasjoner();
-  const [inaktiveBeskjeder] = useInaktiveBrukernotifikasjoner();
+  const { data: beskjeder } = useQuery(BESKJED_URL, fetcher);
+  const { data: inaktiveBeskjeder } = useQuery(BESKJED_INAKTIV_URL, fetcher);
   const { data: oppgaver } = useQuery(OPPGAVE_URL, fetcher);
   const { data: innbokser } = useQuery(INNBOKS_URL, fetcher);
   const { data: inaktiveOppgaver } = useQuery(OPPGAVE_INAKTIV_URL, fetcher);

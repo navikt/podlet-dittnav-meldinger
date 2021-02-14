@@ -2,12 +2,17 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Systemtittel } from "nav-frontend-typografi";
 import Brukernotifikasjoner from "../../../components/Brukernotifikasjoner";
-import useBrukernotifikasjoner from "../../../hooks/useBrukernotifikasjoner";
+import { useQuery } from "react-query";
+import { BESKJED_URL, INNBOKS_URL, OPPGAVE_URL } from "../../../constants";
+import { fetcher } from "../../../api";
 
 const antallVarsler = (varsler) => (varsler && varsler.content ? varsler.content.length : 0);
 
 const AktiveVarsler = () => {
-  const [beskjeder, { data: oppgaver }, { data: innbokser }] = useBrukernotifikasjoner();
+  const { data: beskjeder } = useQuery(BESKJED_URL, fetcher);
+  const { data: oppgaver } = useQuery(OPPGAVE_URL, fetcher);
+  const { data: innbokser } = useQuery(INNBOKS_URL, fetcher);
+
   const antallAktiveVarsler = antallVarsler(beskjeder) + antallVarsler(oppgaver) + antallVarsler(innbokser);
 
   return (

@@ -1,42 +1,22 @@
 import React from "react";
 import { bool } from "prop-types";
 import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
-import useStore from "../../hooks/useStore";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
 import PanelMedIkon from "../common/PanelMedIkon";
-import { postDone, tokenExpiresSoon } from "../../api";
 import IkonBeskjed from "../../assets/IkonBeskjed";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import BeskjedType from "../../types/BeskjedType";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../utils/googleAnalytics";
+import useMutateBeskjed from "../../hooks/useMutateBeskjed";
 import "../../less/Beskjed.less";
 
-const remove = (beskjed, removeBeskjed, visInnloggingsModal) => {
-  postDone({
-    eventId: beskjed.eventId,
-    uid: beskjed.uid,
-  }).then((headers) => {
-    if (tokenExpiresSoon(headers)) {
-      visInnloggingsModal();
-    }
-  });
-  removeBeskjed(beskjed);
-};
-
-const addTilInaktiveHvisErAktiv = (beskjed, addInaktivBeskjed, erAktiv) => {
-  if (erAktiv) {
-    addInaktivBeskjed(beskjed);
-  }
-};
-
-const onClickBeskjed = (beskjed, removeBeskjed, addInaktivBeskjed, visInnloggingsModal, erAktiv) => {
-  remove(beskjed, removeBeskjed, visInnloggingsModal);
-  addTilInaktiveHvisErAktiv(beskjed, addInaktivBeskjed, erAktiv);
+const onClickBeskjed = (beskjed, mutation) => {
+  mutation.mutate(beskjed);
   trackEvent(GoogleAnalyticsCategory.Forside, GoogleAnalyticsAction.BeskjedLukk, "");
 };
 
 const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
-  const { removeBeskjed, addInaktivBeskjed, visInnloggingsModal } = useStore();
+  const mutation = useMutateBeskjed();
 
   const sikkerhetsnivaa = useSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
   const lenkeTekst = sikkerhetsnivaa.skalMaskeres ? "beskjed.lenke.stepup.tekst" : "beskjed.lenke.tekst";
@@ -50,7 +30,7 @@ const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
       alt="Beskjed"
       overskrift={sikkerhetsnivaa.tekst}
       etikett={lokalDatoTid}
-      onClick={() => onClickBeskjed(beskjed, removeBeskjed, addInaktivBeskjed, visInnloggingsModal, erAktiv)}
+      onClick={() => onClickBeskjed(beskjed, mutation)}
       skjermleserTekst="beskjed.knapp.skjermleser.tekst"
       lenke={sikkerhetsnivaa.lenke}
       lenkeTekst={lenkeTekst}
