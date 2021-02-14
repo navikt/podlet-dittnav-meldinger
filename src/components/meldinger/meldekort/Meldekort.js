@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage as F, useIntl } from "react-intl";
-import { MELDEKORT_URL, Path } from "../../../constants";
+import { MELDEKORT_PATH, MELDEKORT_URL } from "../../../constants";
 import i18n from "../../../language/i18n";
 import PanelOverskrift from "../../common/PanelOverskrift";
 import LenkepanelMedIkon from "../../common/LenkepanelMedIkon";
@@ -62,7 +62,7 @@ const Meldekort = () => {
         alt="Melding om meldekort"
         overskrift={<PanelOverskrift overskrift={overskrift(true)} type="Element" />}
         ingress={ingress(true)}
-        href={`${buildNavNoUrl(Path.MELDEKORT)}`}
+        href={`${buildNavNoUrl(MELDEKORT_PATH)}`}
         gaCategory={GoogleAnalyticsCategory.Forside}
         gaAction={GoogleAnalyticsAction.MeldekortKlar}
       >
@@ -78,7 +78,7 @@ const Meldekort = () => {
         alt="Melding om meldekort"
         overskrift={<PanelOverskrift overskrift={overskrift(false)} type="Element" />}
         ingress={ingress(false)}
-        href={`${buildNavNoUrl(Path.MELDEKORT)}`}
+        href={`${buildNavNoUrl(MELDEKORT_PATH)}`}
         gaCategory={GoogleAnalyticsCategory.Forside}
         gaAction={GoogleAnalyticsAction.MeldekortVent}
       >

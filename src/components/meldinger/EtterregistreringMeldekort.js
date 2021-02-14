@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage as F, useIntl } from "react-intl";
-import { MELDEKORT_URL, Path } from "../../constants";
+import { ETTERREGISTRERTE_MELDEKORT_PATH, MELDEKORT_URL } from "../../constants";
 import i18n from "../../language/i18n";
 import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import PanelOverskrift from "../common/PanelOverskrift";
@@ -38,7 +38,7 @@ const EtterregistreringMeldekort = () => {
         className="infomelding oppgave"
         alt="Melding om etterregistrerte meldekort"
         overskrift={createOverskrift(meldekort, intl)}
-        href={`${buildNavNoUrl(Path.ETTERREGISTRERTE_MELDEKORT)}`}
+        href={`${buildNavNoUrl(ETTERREGISTRERTE_MELDEKORT_PATH)}`}
         gaCategory={GoogleAnalyticsCategory.Forside}
         gaAction={GoogleAnalyticsAction.EtterregistrerteMeldekort}
       >
