@@ -36,7 +36,7 @@ const InfoMeldinger = () => {
         <F id="dittnav.infomeldinger.varsler" />
       </h1>
       <Meldekort />
-      <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} erAktiv />
+      <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} />
       <InformasjonsMeldinger />
       <EtterregistreringMeldekort />
       <PaabegynteSoknader />

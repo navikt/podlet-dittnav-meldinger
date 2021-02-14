@@ -1,5 +1,4 @@
 import React from "react";
-import { bool } from "prop-types";
 import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
 import PanelMedIkon from "../common/PanelMedIkon";
@@ -15,14 +14,14 @@ const onClickBeskjed = (beskjed, mutation) => {
   trackEvent(GoogleAnalyticsCategory.Forside, GoogleAnalyticsAction.BeskjedLukk, "");
 };
 
-const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
+const Beskjed = ({ beskjed, innloggingsstatus }) => {
   const mutation = useMutateBeskjed();
 
   const sikkerhetsnivaa = useSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
   const lenkeTekst = sikkerhetsnivaa.skalMaskeres ? "beskjed.lenke.stepup.tekst" : "beskjed.lenke.tekst";
   const lokalDatoTid = transformTolokalDatoTid(beskjed.eventTidspunkt);
 
-  const visKnapp = !(sikkerhetsnivaa.skalMaskeres || erInaktiv);
+  const visKnapp = !sikkerhetsnivaa.skalMaskeres;
 
   return (
     <PanelMedIkon
@@ -46,15 +45,11 @@ const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
 Beskjed.propTypes = {
   beskjed: BeskjedType,
   innloggingsstatus: InnloggingsstatusType,
-  erAktiv: bool,
-  erInaktiv: bool,
 };
 
 Beskjed.defaultProps = {
   beskjed: null,
   innloggingsstatus: null,
-  erAktiv: false,
-  erInaktiv: false,
 };
 
 export default Beskjed;

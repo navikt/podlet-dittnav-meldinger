@@ -11,7 +11,7 @@ import { useQuery } from "react-query";
 import { fetcher } from "../api";
 import { INNLOGGINGSSTATUS_URL } from "../constants";
 
-const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInaktiv }) => {
+const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser }) => {
   const { data: innloggingsstatus, isSuccess } = useQuery(INNLOGGINGSSTATUS_URL, fetcher);
 
   if (!isSuccess) {
@@ -29,16 +29,7 @@ const Brukernotifikasjoner = ({ beskjeder, oppgaver, innbokser, erAktiv, erInakt
         innloggingsstatus &&
         beskjeder
           .sort(byEventTidspunkt)
-          .map((b) => (
-            <Beskjed
-              key={b.uid}
-              beskjed={b}
-              beskjeder={b}
-              innloggingsstatus={innloggingsstatus}
-              erAktiv={erAktiv}
-              erInaktiv={erInaktiv}
-            />
-          ))}
+          .map((b) => <Beskjed key={b.uid} beskjed={b} beskjeder={b} innloggingsstatus={innloggingsstatus} />)}
       {innbokser &&
         innloggingsstatus &&
         innbokser
@@ -52,16 +43,12 @@ Brukernotifikasjoner.propTypes = {
   beskjeder: arrayOf(BeskjedType),
   oppgaver: arrayOf(OppgaveType),
   innbokser: arrayOf(InnboksType),
-  erAktiv: bool,
-  erInaktiv: bool,
 };
 
 Brukernotifikasjoner.defaultProps = {
   beskjeder: null,
   oppgaver: null,
   innbokser: null,
-  erAktiv: false,
-  erInaktiv: false,
 };
 
 export default Brukernotifikasjoner;
