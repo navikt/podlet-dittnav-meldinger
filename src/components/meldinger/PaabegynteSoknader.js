@@ -10,10 +10,6 @@ import { fetcher } from "../../api";
 import { SAKER_URL } from "../../constants";
 import "../../less/PaabegynteSoknader.less";
 
-const hasContent = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader;
-
-const hasNoPaabegynteSoknader = (paabegynteSoknader) => paabegynteSoknader && paabegynteSoknader.antallPaabegynte === 0;
-
 const createOverskrift = (paabegynteSoknader, soknadstekst, intl) => (
   <PanelOverskrift
     overskrift={
@@ -27,14 +23,12 @@ const PaabegynteSoknader = () => {
   const { data: paabegynteSoknader, isSuccess } = useQuery(SAKER_URL, fetcher);
   const intl = useIntl();
 
-  if (!isSuccess || !hasContent(paabegynteSoknader) || hasNoPaabegynteSoknader(paabegynteSoknader)) {
+  if (!isSuccess || paabegynteSoknader?.antallPaabegynte === 0) {
     return null;
   }
 
   const soknadstekst =
-    paabegynteSoknader && paabegynteSoknader.antallPaabegynte === 1
-      ? "saksoversikt.soknad.en"
-      : "saksoversikt.soknad.flere";
+    paabegynteSoknader?.antallPaabegynte === 1 ? "saksoversikt.soknad.en" : "saksoversikt.soknad.flere";
 
   return (
     <LenkepanelMedIkon

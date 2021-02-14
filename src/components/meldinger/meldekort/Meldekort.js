@@ -12,7 +12,7 @@ import { buildNavNoUrl } from "../../../utils/api";
 import { useQuery } from "react-query";
 import { fetcher } from "../../../api";
 
-const isMeldekortbruker = (meldekort) => (meldekort && meldekort ? meldekort.meldekortbruker : false);
+const isMeldekortbruker = (meldekort) => (meldekort ? meldekort.meldekortbruker : false);
 
 const Meldekort = () => {
   const { data: meldekort, isSuccess } = useQuery(MELDEKORT_URL, fetcher);
@@ -24,7 +24,7 @@ const Meldekort = () => {
 
   const { formatDateMonth, formatDayAndMonth, numberToWord } = i18n[intl.locale];
   const { antallNyeMeldekort } = meldekort.nyeMeldekort;
-  const risikererTrekk = meldekort.nyeMeldekort.nesteMeldekort && meldekort.nyeMeldekort.nesteMeldekort.risikererTrekk;
+  const risikererTrekk = meldekort.nyeMeldekort?.nesteMeldekort?.risikererTrekk;
 
   const overskrift = (klarForInnsending) =>
     klarForInnsending ? (
