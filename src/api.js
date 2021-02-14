@@ -38,18 +38,6 @@ const postJSON = (url, content) =>
       .catch((e) => reject(e));
   });
 
-export const postHendelse = (path, content) => {
-  return postJSON(`${TestProducer.URL}/${path}`, content);
-};
-
-export const postDoneAll = () => {
-  return postJSON(`${TestProducer.DONE_ALL_URL}`, null);
-};
-
 export const postDone = (content) => {
   return postJSON(`${DONE_URL}`, content);
-};
-
-export const postStatusoppdatering = (content) => {
-  return postJSON(`${TestProducer.STATUSOPPDATERING_URL}`, content);
 };
