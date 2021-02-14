@@ -10,21 +10,11 @@ import MinInnboks from "./meldinger/MinInnboks";
 import InngangVarslinger from "./InngangVarslinger";
 import { useQuery } from "react-query";
 import { fetcher } from "../api";
-import {
-  BESKJED_INAKTIV_URL,
-  BESKJED_URL,
-  INNBOKS_INAKTIV_URL,
-  INNBOKS_URL,
-  OPPGAVE_INAKTIV_URL,
-  OPPGAVE_URL,
-} from "../constants";
+import { BESKJED_INAKTIV_URL, INNBOKS_INAKTIV_URL, OPPGAVE_INAKTIV_URL } from "../constants";
 import "../less/InfoMeldinger.less";
 
 const InfoMeldinger = () => {
-  const { data: beskjeder } = useQuery(BESKJED_URL, fetcher);
   const { data: inaktiveBeskjeder } = useQuery(BESKJED_INAKTIV_URL, fetcher);
-  const { data: oppgaver } = useQuery(OPPGAVE_URL, fetcher);
-  const { data: innbokser } = useQuery(INNBOKS_URL, fetcher);
   const { data: inaktiveOppgaver } = useQuery(OPPGAVE_INAKTIV_URL, fetcher);
   const { data: inaktiveInnbokser } = useQuery(INNBOKS_INAKTIV_URL, fetcher);
 
@@ -36,7 +26,7 @@ const InfoMeldinger = () => {
         <F id="dittnav.infomeldinger.varsler" />
       </h1>
       <Meldekort />
-      <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} />
+      <Brukernotifikasjoner />
       <InformasjonsMeldinger />
       <EtterregistreringMeldekort />
       <PaabegynteSoknader />
