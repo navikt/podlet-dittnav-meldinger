@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import InfoMeldinger from "./components/Infomeldinger";
 import DittnavLenkePanel from "./components/DittnavLenkePanel";
 
