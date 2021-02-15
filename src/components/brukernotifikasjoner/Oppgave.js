@@ -1,5 +1,4 @@
 import React from "react";
-import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
 import PanelOverskrift from "../common/PanelOverskrift";
@@ -7,10 +6,11 @@ import IkonOppgave from "../../assets/IkonOppgave";
 import OppgaveType from "../../types/OppgaveType";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import { GoogleAnalyticsAction, removeFragment } from "../../utils/googleAnalytics";
+import getSikkerhetsnivaa from "../../utils/sikkerhetsnivaa";
 import "../../less/Oppgave.less";
 
 const Oppgave = ({ oppgave, innloggingsstatus }) => {
-  const sikkerhetsnivaa = useSikkerhetsnivaa(oppgave, "oppgave", innloggingsstatus);
+  const sikkerhetsnivaa = getSikkerhetsnivaa(oppgave, "oppgave", innloggingsstatus);
   const overskrift = <PanelOverskrift overskrift={sikkerhetsnivaa.tekst} type="Element" />;
   const lokalDatoTid = transformTolokalDatoTid(oppgave.eventTidspunkt);
 

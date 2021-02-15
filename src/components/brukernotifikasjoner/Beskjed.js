@@ -1,5 +1,4 @@
 import React from "react";
-import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
 import PanelMedIkon from "../common/PanelMedIkon";
 import IkonBeskjed from "../../assets/IkonBeskjed";
@@ -7,6 +6,7 @@ import InnloggingsstatusType from "../../types/InnloggingsstatusType";
 import BeskjedType from "../../types/BeskjedType";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../utils/googleAnalytics";
 import useMutateBeskjed from "../../hooks/useMutateBeskjed";
+import getSikkerhetsnivaa from "../../utils/sikkerhetsnivaa";
 import "../../less/Beskjed.less";
 
 const onClickBeskjed = (beskjed, mutation) => {
@@ -16,8 +16,7 @@ const onClickBeskjed = (beskjed, mutation) => {
 
 const Beskjed = ({ beskjed, innloggingsstatus }) => {
   const mutation = useMutateBeskjed();
-
-  const sikkerhetsnivaa = useSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
+  const sikkerhetsnivaa = getSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
   const lenkeTekst = sikkerhetsnivaa.skalMaskeres ? "beskjed.lenke.stepup.tekst" : "beskjed.lenke.tekst";
   const lokalDatoTid = transformTolokalDatoTid(beskjed.eventTidspunkt);
 
