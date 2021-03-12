@@ -24,15 +24,10 @@ const checkResponse = (response) => {
 };
 
 export const fetcher = async ({ queryKey }) => {
-  const response = await fetch(queryKey, {
-    method: "GET",
-    credentials: "include",
-  });
-  // checkResponse(response);
-  const data = await response.json();
-  return data;
+  const response = await fetch(queryKey, getOptions);
+  checkResponse(response);
 
-  return data;
+  return response.json();
 };
 
 const postJSON = (url, content) =>
