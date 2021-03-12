@@ -23,12 +23,6 @@ const checkResponse = (response) => {
   }
 };
 
-export const swrFetcher = async (url) => {
-  const response = await fetch(url, { method: "GET", credentials: "include" });
-  const data = await response.json();
-  return data;
-};
-
 export const fetcher = async ({ queryKey }) => {
   const response = await fetch(queryKey, getOptions);
   checkResponse(response);
