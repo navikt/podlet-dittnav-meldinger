@@ -1,4 +1,4 @@
-import { DONE_URL, TestProducer } from "./constants";
+import { DONE_URL } from "./constants";
 
 export const tokenExpiresSoon = (headers) => headers.get("x-token-expires-soon");
 
