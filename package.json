@@ -76,7 +76,7 @@
     "start": "rollup -c rollup.config.dev.js -w",
     "build": "rollup -c rollup.config.prod.js",
     "test": "node --version",
-    "test-ci": "npm run lint && CI=true craco test",
+    "test-ci": "npm run lint && CI=true react-scripts test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "lint": "eslint --ext .js,.jsx src",
     "podlet": "node podlet.js"
