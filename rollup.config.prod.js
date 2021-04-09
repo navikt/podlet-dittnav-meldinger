@@ -16,7 +16,7 @@ export default {
       maps: [
         {
           imports: {
-            react: "https://neik.dev.intern.nav.no/npm/@esm-bundle/react/v17/package/index.js",
+            react: "https://neik.dev.intern.nav.no/npm/@esm-bundle/react/17.0.1/package/index.js",
             "react-dom": "https://neik.dev.intern.nav.no/npm/@esm-bundle/react-dom/v17/package/index.js",
           },
         },
