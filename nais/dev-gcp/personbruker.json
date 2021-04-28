@@ -1,0 +1,7 @@
+{
+  "app": "podlet-dittnav-meldinger",
+  "namespace": "personbruker",
+  "team": "personbruker",
+  "base_path": "/person/podlet-dittnav-meldinger",
+  "ingresses": ["https://person.dev.nav.no/person/podlet-dittnav-meldinger"]
+}
